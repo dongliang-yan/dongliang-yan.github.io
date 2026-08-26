@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Dongliang Yan</title>
+<meta name="description" content="Dongliang Yan — Biomedical Engineering PhD student at Duke University working on 3-D ultrasound imaging, focused ultrasound, and medical device R&amp;D.">
+<meta name="author" content="Dongliang Yan">
+
+<meta property="og:title" content="Dongliang Yan">
+<meta property="og:description" content="BME PhD student at Duke — 3-D ultrasound imaging, focused ultrasound, and medical device R&amp;D.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://DY.github.io/">
+<meta property="og:image" content="https://DY.github.io/assets/profile.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#127891;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Design tokens. Change colours here and the whole page follows.
+   ============================================================ */
+:root{
+  --bg:#eef0f3; --card:#ffffff; --ink:#22262b; --ink-soft:#4e555d;
+  --ink-mute:#828a93; --line:#e6e8ec; --accent:#2563a8; --btn:#3f4550;
+  --btn-ink:#ffffff; --btn-hover:#5a616d; --thumb:#e9ecf1;
+  --shadow:0 0 28px rgba(0,0,0,.15);
+}
+/* Automatic dark mode — follows the visitor's OS setting. Delete for light-only. */
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0f1114; --card:#191c21; --ink:#e6e8ec; --ink-soft:#b6bcc5;
+    --ink-mute:#858d97; --line:#2a2f37; --accent:#6fa8e8; --btn:#333a45;
+    --btn-ink:#eef1f5; --btn-hover:#454e5c; --thumb:#232830;
+    --shadow:0 0 28px rgba(0,0,0,.55);
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+
+body{
+  font-family:'Lato',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  background:var(--bg); color:var(--ink);
+  min-height:100vh; padding:24px; line-height:1.55;
+  display:flex; align-items:center; justify-content:center;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  display:flex; width:min(1000px,100%);
+  max-height:calc(100vh - 48px);
+  background:var(--card); border-radius:10px;
+  overflow:hidden; box-shadow:var(--shadow);
+}
+
+/* ---------------- Sidebar ---------------- */
+.sidebar{
+  flex:0 0 250px; width:250px;
+  display:flex; flex-direction:column; align-items:center;
+  padding:30px 20px; text-align:center;
+  border-right:1px solid var(--line);
+}
+.avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;background:var(--thumb);display:block}
+.name{font-size:1.35rem;font-weight:700;margin-top:18px;line-height:1.25}
+.role{font-size:.82rem;color:var(--ink-mute);margin-top:8px;line-height:1.45}
+.where{display:flex;align-items:center;justify-content:center;gap:6px;font-size:.85rem;color:var(--ink-mute);margin-top:10px}
+.where svg{width:12px;height:12px;fill:currentColor;flex:none}
+
+.icons,.links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.icons{margin-top:20px}
+.links{margin-top:12px}
+.icons a{
+  width:38px;height:34px;display:grid;place-items:center;
+  background:var(--btn);color:var(--btn-ink);border-radius:5px;
+  transition:background-color .2s ease;
+}
+.icons svg{width:17px;height:17px;fill:currentColor}
+.links a{
+  background:var(--btn);color:var(--btn-ink);padding:6px 15px;
+  border-radius:5px;font-size:.85rem;text-decoration:none;
+  transition:background-color .2s ease;
+}
+.icons a:hover,.links a:hover{background:var(--btn-hover)}
+
+/* ---------------- Content ---------------- */
+.content{flex:1 1 auto;min-width:0;padding:36px 40px 40px;overflow-y:auto;scrollbar-width:thin}
+.content::-webkit-scrollbar{width:8px}
+.content::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+
+section + section{margin-top:28px}
+h1{font-size:1.4rem;margin-bottom:12px}
+h2{font-size:1rem;margin-bottom:8px}
+p{color:var(--ink-soft);margin-bottom:10px;line-height:1.45;text-align:justify;hyphens:auto}
+a{color:var(--accent)}
+a:focus-visible,.links a:focus-visible,.icons a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* A project: figure on the left, description on the right. */
+.project{margin-bottom:20px}
+.project:last-child{margin-bottom:0}
+.project-body{display:flex;gap:16px;align-items:flex-start}
+.project-body img{flex:0 0 240px;width:240px;aspect-ratio:4/3;object-fit:cover;border-radius:6px;background:var(--thumb)}
+.blurb{font-size:.88rem;color:var(--ink-soft);line-height:1.45;margin-bottom:8px;text-align:left}
+.cite{font-size:.85rem;color:var(--ink-mute);margin-bottom:0;text-align:left}
+.me{font-weight:700;color:var(--ink)}       /* your own name in a citation */
+.venue{font-weight:700}
+
+ul.talks{padding-left:20px}
+ul.talks li{font-size:.88rem;color:var(--ink-soft);line-height:1.45;margin-bottom:9px}
+
+ol.pubs{padding-left:20px}
+ol.pubs li{font-size:.88rem;color:var(--ink-soft);margin-bottom:12px}
+
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink-mute);text-align:center}
+
+/* ---------------- Phones & small tablets ---------------- */
+@media (max-width:820px){
+  body{display:block;padding:0}
+  .container{flex-direction:column;width:100%;max-height:none;min-height:100vh;border-radius:0;box-shadow:none}
+  .sidebar{flex:none;width:100%;padding:36px 20px 28px;border-right:0;border-bottom:1px solid var(--line)}
+  .content{overflow-y:visible;padding:28px 22px 40px}
+  .project-body{flex-direction:column}
+  .project-body img{flex:none;width:100%}
+  p{text-align:left}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <aside class="sidebar">
+    <img class="avatar" src="assets/profile.jpg" alt="Portrait of Dongliang Yan">
+
+    <div class="name">Dongliang Yan</div>
+    <div class="role">Ultrasound Imaging &amp; Medical Device R&amp;D</div>
+
+    <div class="where">
+      <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M192 0C86 0 0 86 0 192c0 87 117 243 166 303a33 33 0 0 0 52 0c49-60 166-216 166-303C384 86 298 0 192 0zm0 272a80 80 0 1 1 0-160 80 80 0 0 1 0 160z"/></svg>
+      Durham, NC
+    </div>
+
+    <!-- EDIT: the GitHub / LinkedIn / Scholar hrefs below are placeholders. -->
+    <div class="icons">
+      <a href="#" title="GitHub" aria-label="GitHub">
+        <svg viewBox="0 0 496 512" aria-hidden="true"><path d="M165 397c0 2-2 4-5 4-3 0-5-2-5-4s2-4 5-4c3 0 5 2 5 4zm-30-4c-1 2 1 5 4 5 2 1 5 0 6-2 0-2-1-4-4-5-3-1-5 0-6 2zm42-1c-3 0-5 2-5 5 0 2 3 3 6 3 3-1 5-3 4-5 0-2-3-4-5-3zM244 8C106 8 0 113 0 251c0 110 69 204 167 237 13 3 17-5 17-13v-45c-68 15-83-33-83-33-11-29-27-36-27-36-23-15 2-15 2-15 24 2 37 25 37 25 22 37 57 27 71 20 2-16 9-27 16-33-54-6-111-27-111-121 0-27 10-49 25-66-2-6-11-31 3-65 0 0 20-7 67 25a232 232 0 0 1 122 0c46-32 67-25 67-25 13 34 5 59 2 65 16 17 25 39 25 66 0 94-57 115-112 121 9 8 17 23 17 46v69c0 8 5 17 17 14C427 455 496 361 496 251 496 113 386 8 244 8z"/></svg>
+      </a>
+      <a href="#" title="LinkedIn" aria-label="LinkedIn">
+        <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100 448H7V149h93v299zM54 108a54 54 0 1 1 0-108 54 54 0 0 1 0 108zm394 340h-93V302c0-35-1-79-48-79-49 0-56 37-56 76v149h-93V149h89v41h1c13-23 43-48 88-48 94 0 111 62 111 142v164z"/></svg>
+      </a>
+      <a href="#" title="Google Scholar" aria-label="Google Scholar">
+        <svg viewBox="0 0 640 512" aria-hidden="true"><path d="M320 32 0 192l320 160 320-160L320 32zM128 300v104c0 35 86 76 192 76s192-41 192-76V300L320 396 128 300z"/></svg>
+      </a>
+      <a href="mailto:dy117@duke.edu" title="Email" aria-label="Email">
+        <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M48 64h416c26 0 48 22 48 48v18L256 279 0 130v-18c0-26 22-48 48-48zM0 176l246 143c6 4 14 4 20 0l246-143v224c0 26-22 48-48 48H48c-26 0-48-22-48-48V176z"/></svg>
+      </a>
+    </div>
+
+    <div class="links">
+      <a href="assets/cv.pdf">CV</a>
+      <a href="blog.html">Blog</a>
+      <a href="notes.html">Notes</a>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section>
+      <h1>About Me</h1>
+      <p>
+        I am a PhD student in Biomedical Engineering @ <a href="https://bme.duke.edu/">Duke University</a>
+        (expected 2027), advised by Prof. Pengfei Song, working on <strong>ultrasound imaging systems and
+        medical device R&amp;D</strong>. My current focus is FASTER-AIR, a portable clip-on device that turns
+        a conventional 1-D linear-array probe into a high-resolution 3-D imaging system.
+      </p>
+      <p>
+        I hold an M.S. in Biomedical Engineering from <a href="https://viterbi.usc.edu/">USC</a> and
+        previously did PhD studies in Bioengineering at
+        <a href="https://bioengineering.illinois.edu/">UIUC</a>. At USC&rsquo;s Ultrasound Transducer
+        Resource Center I worked with Prof. Qifa Zhou on transducer design and fabrication and on an
+        ultrasound tweezer platform for cell manipulation.
+      </p>
+      <p>
+        My work spans the full device pipeline: concept development, wave propagation simulation,
+        transducer design and fabrication, prototyping, system integration, image reconstruction, and
+        benchtop verification and validation.
+      </p>
+      <p>
+        Up till now my focus has been on focused &amp; therapeutic ultrasound, 3-D imaging and Doppler,
+        ULM, and deep learning&ndash;based computational imaging, with experience in k-Wave, Field II,
+        Verasonics, hydrophone metrology, MEMS, and embedded control. Feel free to reach out if any of
+        the above interests you.
+      </p>
+    </section>
+
+    <section>
+      <h1>Projects</h1>
+
+      <article class="project">
+        <h2>FASTER-AIR: Portable High-Resolution 3-D Ultrasound</h2>
+        <div class="project-body">
+          <img src="assets/project1.svg" alt="FASTER-AIR clip-on 3-D ultrasound system">
+          <div>
+            <p class="blurb">
+              A clip-on 3-D system built on a MEMS tilting acoustic reflector. My air-backed
+              convex&ndash;concave design improved elevational resolution from 2.98 to 1.39&nbsp;mm and CNR
+              from 1.57 to 2.24; volumetric flow via power-weighted SIVV matched reference rates from
+              60&ndash;420&nbsp;mL/min.
+            </p>
+            <p class="cite">
+              <span class="me">D. Yan</span>*, M. R. Lowerison, D. P. Bradway, M. Yi, S. Abbasikamazani,
+              J. Zou, and P. Song, &ldquo;Air-backing acoustic reflectors for enhanced FASTER 3-D
+              ultrasound imaging,&rdquo; submitted to <span class="venue">IEEE TUFFC</span>, 2026.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <h2>Beam Scope: Portable Calibration Accessory</h2>
+        <div class="project-body">
+          <img src="assets/project2.svg" alt="Beam Scope calibration accessory">
+          <div>
+            <p class="blurb">
+              Replaces a two-scanner, two-transducer water-tank calibration with a single-system workflow
+              completed in minutes, alongside Arduino-based control for reflector actuation, imaging-plane
+              positioning, and acquisition synchronization.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <h2>Focused Ultrasound with Concurrent Imaging</h2>
+        <div class="project-body">
+          <img src="assets/project3.svg" alt="Clip-on beam-path remodulator for focused ultrasound">
+          <div>
+            <p class="blurb">
+              A stainless-steel convex&ndash;concave clip-on beam-path remodulator for H-102 transducers,
+              with a central aperture for imaging arrays that enables image guidance during
+              neuromodulation. Includes fUS in mice mapping stimulus-evoked cerebral hemodynamics.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <h2>Transcranial Ultrasound Localization Microscopy</h2>
+        <div class="project-body">
+          <img src="assets/project4.svg" alt="Transcranial ultrasound localization microscopy">
+          <div>
+            <p class="blurb">
+              Deep learning phase-aberration correction using experimentally acquired skull-aberrated and
+              reference PSF banks to cut training-to-in-vivo domain shift &mdash; up to 10.96% better in vivo
+              resolution through intact mouse skulls.
+            </p>
+            <p class="cite">
+              M. Yi, Z. Huang, Y. Wang, B.-Z. Lin, <span class="me">D. Yan</span>, Y. Shin, M. Lowerison,
+              and P. Song, &ldquo;Addressing domain shift in deep learning-based phase aberration
+              correction for transcranial ULM,&rdquo; submitted to
+              <span class="venue">IEEE Transactions on Medical Imaging</span>, 2026.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h1>Talks</h1>
+      <ul class="talks">
+        <li>
+          <span class="venue">IEEE International Ultrasonics Symposium (IUS 2026)</span>, Raleigh, NC
+          &mdash; selected oral, &ldquo;Air-Backed Curved Acoustic Reflectors for Elevational Beam
+          Refocusing in FASTER 3-D Ultrasound Imaging.&rdquo; Oct 2026.
+        </li>
+        <li>
+          <span class="venue">International Symposium on Ultrasonic Imaging and Tissue
+          Characterization</span>, Silver Spring, MD &mdash; oral, on FASTER-AIR&rsquo;s reflector
+          architecture, calibration workflow, and volumetric flow validation. Apr 2026.
+        </li>
+        <li>
+          <span class="venue">AIUM Annual Convention</span>, Orlando, FL &mdash; poster, clip-on 3-D
+          ultrasound and volumetric flow on a GE LOGIQ E10 with a clinical L2-9D probe. 2025.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Detailed Pub List</h1>
+      <ol class="pubs">
+        <li>
+          <span class="me">D. Yan</span>*, M. R. Lowerison, D. P. Bradway, M. Yi, S. Abbasikamazani,
+          J. Zou, and P. Song, &ldquo;Air-backing acoustic reflectors for enhanced FASTER 3-D ultrasound
+          imaging,&rdquo; submitted to <span class="venue">IEEE Transactions on Ultrasonics,
+          Ferroelectrics, and Frequency Control</span>, 2026.
+        </li>
+        <li>
+          M. Yi, Z. Huang, Y. Wang, B.-Z. Lin, <span class="me">D. Yan</span>, Y. Shin, M. Lowerison,
+          and P. Song, &ldquo;Addressing domain shift in deep learning-based phase aberration correction
+          for transcranial ultrasound localization microscopy,&rdquo; submitted to
+          <span class="venue">IEEE Transactions on Medical Imaging</span>, 2026.
+        </li>
+        <li>
+          M. R. Lowerison et al., including <span class="me">D. Yan</span>, &ldquo;Comparison of
+          high-frequency ultrasound transducers for microvascular localization microscopy in the mouse
+          brain,&rdquo; <span class="venue">Imaging Neuroscience</span>, vol. 3, 2025.
+        </li>
+        <li>
+          M. R. Lowerison et al., including <span class="me">D. Yan</span>, &ldquo;Capillary-scale
+          microvessel imaging with high-frequency ultrasound localization microscopy in mouse
+          brain,&rdquo; <span class="venue">bioRxiv</span>, 2024.
+        </li>
+        <li>
+          Z. Dong et al., including <span class="me">D. Yan</span>, &ldquo;Real-time 3-D ultrasound
+          imaging with a clip-on device attached to common 1-D array transducers,&rdquo;
+          <span class="venue">J. Acoust. Soc. Am.</span>, vol. 155, p. A102, 2024.
+        </li>
+        <li>
+          Y. Zeng et al., including <span class="me">D. Yan</span>, &ldquo;Manipulation and mechanical
+          deformation of leukemia cells by high-frequency ultrasound single beam,&rdquo;
+          <span class="venue">IEEE TUFFC</span>, vol. 69, no. 6, pp. 1889&ndash;1897, 2022.
+        </li>
+      </ol>
+    </section>
+
+    <footer>
+      &copy; <span id="year">2026</span> Dongliang Yan &middot; Last updated August 2026
+    </footer>
+
+  </main>
+</div>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
