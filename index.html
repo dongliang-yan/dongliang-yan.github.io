@@ -101,9 +101,7 @@ a:focus-visible,.links a:focus-visible,.icons a:focus-visible{outline:2px solid 
 /* A project: figure on the left, description on the right. */
 .project{margin-bottom:20px}
 .project:last-child{margin-bottom:0}
-.project-body{display:flex;gap:16px;align-items:flex-start}
-.project-body img{flex:0 0 240px;width:240px;aspect-ratio:4/3;object-fit:cover;border-radius:6px;background:var(--thumb)}
-.blurb{font-size:.88rem;color:var(--ink-soft);line-height:1.45;margin-bottom:8px;text-align:left}
+.blurb{font-size:.88rem;color:var(--ink-soft);line-height:1.45;margin-bottom:8px;text-align:justify;hyphens:auto}
 .cite{font-size:.85rem;color:var(--ink-mute);margin-bottom:0;text-align:left}
 .me{font-weight:700;color:var(--ink)}       /* your own name in a citation */
 .venue{font-weight:700}
@@ -122,8 +120,6 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
   .container{flex-direction:column;width:100%;max-height:none;min-height:100vh;border-radius:0;box-shadow:none}
   .sidebar{flex:none;width:100%;padding:36px 20px 28px;border-right:0;border-bottom:1px solid var(--line)}
   .content{overflow-y:visible;padding:28px 22px 40px}
-  .project-body{flex-direction:column}
-  .project-body img{flex:none;width:100%}
   p{text-align:left}
 }
 </style>
@@ -201,70 +197,50 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 
       <article class="project">
         <h2>FASTER-AIR: Portable High-Resolution 3-D Ultrasound</h2>
-        <div class="project-body">
-          <img src="assets/project1.svg" alt="FASTER-AIR clip-on 3-D ultrasound system">
-          <div>
-            <p class="blurb">
-              A clip-on 3-D system built on a MEMS tilting acoustic reflector. My air-backed
-              convex&ndash;concave design improved elevational resolution from 2.98 to 1.39&nbsp;mm and CNR
-              from 1.57 to 2.24; volumetric flow via power-weighted SIVV matched reference rates from
-              60&ndash;420&nbsp;mL/min.
-            </p>
-            <p class="cite">
-              <span class="me">D. Yan</span>*, M. R. Lowerison, D. P. Bradway, M. Yi, S. Abbasikamazani,
-              J. Zou, and P. Song, &ldquo;Air-backing acoustic reflectors for enhanced FASTER 3-D
-              ultrasound imaging,&rdquo; submitted to <span class="venue">IEEE TUFFC</span>, 2026.
-            </p>
-          </div>
-        </div>
+<p class="blurb">
+          A clip-on 3-D system built on a MEMS tilting acoustic reflector. My air-backed
+          convex&ndash;concave design improved elevational resolution from 2.98 to 1.39&nbsp;mm and CNR
+          from 1.57 to 2.24; volumetric flow via power-weighted SIVV matched reference rates from
+          60&ndash;420&nbsp;mL/min.
+        </p>
+        <p class="cite">
+          <span class="me">D. Yan</span>*, M. R. Lowerison, D. P. Bradway, M. Yi, S. Abbasikamazani,
+          J. Zou, and P. Song, &ldquo;Air-backing acoustic reflectors for enhanced FASTER 3-D
+          ultrasound imaging,&rdquo; submitted to <span class="venue">IEEE TUFFC</span>, 2026.
+        </p>
       </article>
 
       <article class="project">
         <h2>Beam Scope: Portable Calibration Accessory</h2>
-        <div class="project-body">
-          <img src="assets/project2.svg" alt="Beam Scope calibration accessory">
-          <div>
-            <p class="blurb">
-              Replaces a two-scanner, two-transducer water-tank calibration with a single-system workflow
-              completed in minutes, alongside Arduino-based control for reflector actuation, imaging-plane
-              positioning, and acquisition synchronization.
-            </p>
-          </div>
-        </div>
+<p class="blurb">
+          Replaces a two-scanner, two-transducer water-tank calibration with a single-system workflow
+          completed in minutes, alongside Arduino-based control for reflector actuation, imaging-plane
+          positioning, and acquisition synchronization.
+        </p>
       </article>
 
       <article class="project">
         <h2>Focused Ultrasound with Concurrent Imaging</h2>
-        <div class="project-body">
-          <img src="assets/project3.svg" alt="Clip-on beam-path remodulator for focused ultrasound">
-          <div>
-            <p class="blurb">
-              A stainless-steel convex&ndash;concave clip-on beam-path remodulator for H-102 transducers,
-              with a central aperture for imaging arrays that enables image guidance during
-              neuromodulation. Includes fUS in mice mapping stimulus-evoked cerebral hemodynamics.
-            </p>
-          </div>
-        </div>
+<p class="blurb">
+          A stainless-steel convex&ndash;concave clip-on beam-path remodulator for H-102 transducers,
+          with a central aperture for imaging arrays that enables image guidance during
+          neuromodulation. Includes fUS in mice mapping stimulus-evoked cerebral hemodynamics.
+        </p>
       </article>
 
       <article class="project">
         <h2>Transcranial Ultrasound Localization Microscopy</h2>
-        <div class="project-body">
-          <img src="assets/project4.svg" alt="Transcranial ultrasound localization microscopy">
-          <div>
-            <p class="blurb">
-              Deep learning phase-aberration correction using experimentally acquired skull-aberrated and
-              reference PSF banks to cut training-to-in-vivo domain shift &mdash; up to 10.96% better in vivo
-              resolution through intact mouse skulls.
-            </p>
-            <p class="cite">
-              M. Yi, Z. Huang, Y. Wang, B.-Z. Lin, <span class="me">D. Yan</span>, Y. Shin, M. Lowerison,
-              and P. Song, &ldquo;Addressing domain shift in deep learning-based phase aberration
-              correction for transcranial ULM,&rdquo; submitted to
-              <span class="venue">IEEE Transactions on Medical Imaging</span>, 2026.
-            </p>
-          </div>
-        </div>
+<p class="blurb">
+          Deep learning phase-aberration correction using experimentally acquired skull-aberrated and
+          reference PSF banks to cut training-to-in-vivo domain shift &mdash; up to 10.96% better in vivo
+          resolution through intact mouse skulls.
+        </p>
+        <p class="cite">
+          M. Yi, Z. Huang, Y. Wang, B.-Z. Lin, <span class="me">D. Yan</span>, Y. Shin, M. Lowerison,
+          and P. Song, &ldquo;Addressing domain shift in deep learning-based phase aberration
+          correction for transcranial ULM,&rdquo; submitted to
+          <span class="venue">IEEE Transactions on Medical Imaging</span>, 2026.
+        </p>
       </article>
     </section>
 
