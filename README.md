@@ -1,7 +1,7 @@
-# yandongliang.github.io
+# dongliang-yan.github.io
 
-> **Working copy lives in `~/Public/yandongliang.github.io`.** macOS blocks tool access to
-> `~/Documents` and `~/Desktop`; the copy still sitting in `~/Documents/yandongliang.github.io`
+> **Working copy lives in `~/Public/dongliang-yan.github.io`.** macOS blocks tool access to
+> `~/Documents` and `~/Desktop`; the copy still sitting in `~/Documents/dongliang-yan.github.io`
 > is the older placeholder version and should be deleted or overwritten with this one.
 
 Personal academic page. Plain HTML + CSS, no build step, no dependencies to install.
@@ -17,7 +17,7 @@ assets/           photo, project figures, and your CV go here
 ## Preview locally
 
 ```bash
-cd ~/Public/yandongliang.github.io && python3 -m http.server 8765
+cd ~/Public/dongliang-yan.github.io && python3 -m http.server 8765
 ```
 
 Then open <http://localhost:8765>. Edit a file, refresh the browser — that's the whole loop.
@@ -27,17 +27,17 @@ Then open <http://localhost:8765>. Edit a file, refresh the browser — that's t
 **The repo name must exactly match your GitHub username**, i.e. `<username>.github.io`.
 This folder assumes your username is `DY`. If it isn't, rename the folder and the repo
 to match your real username, or the page won't build. (GitHub usernames can't contain
-dots — if you typed `yandongliang.github.io` meaning the site address, your username is `DY`.)
+dots — if you typed `dongliang-yan.github.io` meaning the site address, your username is `DY`.)
 
-1. Create a **public** repo on GitHub named `yandongliang.github.io`. Don't add a README —
+1. Create a **public** repo on GitHub named `dongliang-yan.github.io`. Don't add a README —
    this folder already has one.
 2. From this folder:
 
 ```bash
-git init -b main && git add -A && git commit -m "Personal site" && git remote add origin https://github.com/yandongliang/yandongliang.github.io.git && git push -u origin main
+git init -b main && git add -A && git commit -m "Personal site" && git remote add origin https://github.com/dongliang-yan/dongliang-yan.github.io.git && git push -u origin main
 ```
 
-3. Wait ~1 minute. The site goes live at <https://yandongliang.github.io> — for
+3. Wait ~1 minute. The site goes live at <https://dongliang-yan.github.io> — for
    `username.github.io` repos, Pages turns itself on automatically from the default
    branch, so there's nothing to configure. Check **Settings → Pages** if it doesn't
    appear.
