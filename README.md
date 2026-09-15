@@ -56,13 +56,36 @@ with an `EDIT:` comment in the HTML.
 - [ ] Your CV → drop it at `assets/cv.pdf`
 - [ ] About Me — four paragraphs
 - [ ] Projects — copy a whole `<article class="project">` block per project.
-      Figures go in `assets/`; ~800px wide is plenty.
+      Figures go in `assets/`; ~800px wide is plenty. For videos, see *Project videos* below.
 - [ ] Fun — side projects, one `<div class="entry">` each
 - [ ] Publications — one `<li>` each. `<span class="me">` bolds your own name.
 
 The Blog / Notes buttons don't have to point at `blog.html` / `notes.html` — swap the
 `href` for a Medium profile, a Notion page, or anything else. Delete a button you
 don't want.
+
+## Project videos
+
+FASTER-AIR opens with a row of short, silent, looping videos (`<div class="media">`);
+copy that row into another project to do the same. Videos in a row share one height —
+each `<figure>` sets `--ar` to its video's width ÷ height, which this prints:
+
+```bash
+ffprobe -v error -select_streams v -show_entries stream=width,height -of csv=p=0 in.mp4
+```
+
+Re-encode a clip before adding it: H.264, no audio, and the index moved to the front so
+it starts playing before it has finished downloading. Then take a poster frame, which
+shows until the video plays:
+
+```bash
+ffmpeg -i in.mp4 -an -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart assets/name.mp4
+ffmpeg -i in.mp4 -frames:v 1 -q:v 3 assets/name.jpg
+```
+
+Aim for a couple of MB per clip. Ultrasound speckle is expensive to encode and CAD
+renders are cheap — the 6 s volume clip went from 6.4 MB to about 1 MB this way.
+Visitors whose OS asks for reduced motion get the videos paused, with play controls.
 
 ## Colours and dark mode
 
