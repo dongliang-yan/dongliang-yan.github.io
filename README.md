@@ -87,6 +87,18 @@ Aim for a couple of MB per clip. Ultrasound speckle is expensive to encode and C
 renders are cheap — the 6 s volume clip went from 6.4 MB to about 1 MB this way.
 Visitors whose OS asks for reduced motion get the videos paused, with play controls.
 
+## Google search
+
+`robots.txt` lets every crawler in and points it at `sitemap.xml`, which lists the home
+page. `index.html` carries a canonical URL and a JSON-LD `Person` block in `<head>` that
+tells search engines who the page is about; when the LinkedIn or Scholar icon gets a real
+URL, add that URL to the block's `sameAs` list too.
+
+`blog.html` and `notes.html` are still placeholders, so each has a
+`<meta name="robots" content="noindex">` line that keeps it out of search results.
+**Delete that line when a page gets its first real entry**, and add the page to
+`sitemap.xml`.
+
 ## Colours and dark mode
 
 All colours are CSS variables in the `:root` block at the top of each file. Change one

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dongliang-yan.github.io/sitemap.xml
