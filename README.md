@@ -8,8 +8,6 @@ Personal academic page. Plain HTML + CSS, no build step, no dependencies to inst
 
 ```
 index.html        the whole site (layout + styles are inline, near the top)
-blog.html         stub list page, linked from the "Blog" button
-notes.html        stub list page, linked from the "Notes" button
 assets/           photo, project figures, and your CV go here
 .nojekyll         tells GitHub Pages to serve the files as-is
 ```
@@ -60,10 +58,6 @@ with an `EDIT:` comment in the HTML.
 - [ ] Fun — side projects, one `<div class="entry">` each
 - [ ] Publications — one `<li>` each. `<span class="me">` bolds your own name.
 
-The Blog / Notes buttons don't have to point at `blog.html` / `notes.html` — swap the
-`href` for a Medium profile, a Notion page, or anything else. Delete a button you
-don't want.
-
 ## Project videos
 
 FASTER-AIR opens with a row of short, silent, looping videos (`<div class="media">`);
@@ -91,13 +85,9 @@ Visitors whose OS asks for reduced motion get the videos paused, with play contr
 
 `robots.txt` lets every crawler in and points it at `sitemap.xml`, which lists the home
 page. `index.html` carries a canonical URL and a JSON-LD `Person` block in `<head>` that
-tells search engines who the page is about; when the LinkedIn or Scholar icon gets a real
-URL, add that URL to the block's `sameAs` list too.
-
-`blog.html` and `notes.html` are still placeholders, so each has a
-`<meta name="robots" content="noindex">` line that keeps it out of search results.
-**Delete that line when a page gets its first real entry**, and add the page to
-`sitemap.xml`.
+tells search engines who the page is about; when the LinkedIn icon gets a real URL, add
+it to the block's `sameAs` list too, next to GitHub and Scholar. If you add another page,
+list it in `sitemap.xml`.
 
 ## Colours and dark mode
 
